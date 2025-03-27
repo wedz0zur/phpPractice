@@ -97,7 +97,8 @@ class Student
         echo "<br>" . $this->name . " " . $this->lastName . " " . $this->age . " ", $this->group . " " . $this->specialization;
     }
 
-    function __construct($name, $lastName, $age, $group, $specialization){
+    function __construct($name, $lastName, $age, $group, $specialization)
+    {
         $this->name = $name;
         $this->lastName = $lastName;
         $this->age = $age;
@@ -109,11 +110,45 @@ class Student
 $zurab = new Student("Zurab", "Vedzizhev", 21, "2Р1-11.23", "Разработчик");
 $zurab->getInformation();
 
-$oleg = new Student( "Олег", "Обрамович", 20, "2П1-11.23", "Программист");
+$oleg = new Student("Олег", "Обрамович", 20, "2П1-11.23", "Программист");
 $oleg->getInformation();
 
 
-class car3{
-    
+class Car6
+{
+    function __construct(public $name = "Undefined", public $year = 2013)
+    {
+
+    }
 }
+
+$car6 = new Car6();
+echo "<br>" . $car6->name . " " . $car6->year;
+
+
+$car7 = new Car6("AUDI", 2018);
+echo "<br>" . $car7->name . " " . $car7->year;
+
+
+
+$person2 = new class {
+    public $name = "Артур";
+    function getName()
+    {
+        return "Меня зовут: $this->name";
+    }
+};
+
+echo "<br>" . $person2->name;
+echo "<br>" . $person2->getName();
+
+$person3 = new class("Magaska"){
+    public $name;
+    function __construct($name){
+        $this->name = $name;
+    }
+};
+
+echo "<br>" . $person3->name;
+
 ?>
